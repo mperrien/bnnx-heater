@@ -25,6 +25,8 @@ const displayedTarget = computed<number>(() => {
   } else if (target.value < min.value) {
     return min.value.toFixed(1);
   } else {
+    // I know from experience that users really like being able to set
+    // a very precise temperature. So we always display on decimal place!
     return target.value.toFixed(1);
   }
 });

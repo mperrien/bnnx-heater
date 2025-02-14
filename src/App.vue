@@ -15,7 +15,15 @@
         </div>
         <div class="inputWrapper">
           <label for="target">Target</label>
-          <input type="number" id="target" name="target" v-model="target" :min="min" :max="max" />
+          <input
+            type="number"
+            id="target"
+            name="target"
+            v-model="target"
+            :min="min"
+            :max="max"
+            step="0.1"
+          />
         </div>
       </form>
     </div>

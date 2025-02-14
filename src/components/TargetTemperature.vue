@@ -21,11 +21,13 @@ const { min, max, target } = toRefs(props);
 
 const displayedTarget = computed<number>(() => {
   if (target.value > max.value) {
-    return max.value;
+    return max.value.toFixed(1);
   } else if (target.value < min.value) {
-    return min.value;
+    return min.value.toFixed(1);
   } else {
-    return target.value;
+    // I know from experience that users really like being able to set
+    // very precise temperatures. So we always display one decimal place!
+    return target.value.toFixed(1);
   }
 });
 
@@ -116,6 +118,10 @@ const targetAngle = computed<number>(() => {
 
       background-color: var(--blue);
     }
+  }
+
+  .targetTemperature__value {
+    font-variant-numeric: tabular-nums;
   }
 }
 </style>
